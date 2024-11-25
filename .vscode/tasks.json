@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Format All C/C++ Files",
+      "type": "shell",
+      "command": "find",
+      "args": [
+        ".",
+        "-type",
+        "f",
+        "-name",
+        "*.c",
+        "-o",
+        "-name",
+        "*.cpp",
+        "-o",
+        "-name",
+        "*.h",
+        "-exec",
+        "code",
+        "--wait",
+        "{}",
+        "\\;" // 세미콜론 이스케이프 처리
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
