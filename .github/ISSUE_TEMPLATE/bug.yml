@@ -1,0 +1,76 @@
+name: 🐞 Bug Report
+description: 발견된 버그를 보고하고, 재현 방법과 기대되는 동작을 공유해주세요.
+title: "[BUG] 제목을 입력하세요"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 📝 Summary
+        발견된 버그를 간단히 설명하세요.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 버그 요약
+      description: 간단히 버그를 요약하여 설명하세요.
+      placeholder: 발견된 버그에 대한 요약을 입력하세요.
+      value: ""
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 🛠 Steps to Reproduce
+        버그를 재현하기 위해 수행해야 할 단계를 작성하세요.
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 단계
+      description: 버그를 재현하기 위한 단계와 예상치 못한 결과를 포함하세요.
+      placeholder: 1. [재현 단계 1]  
+                   2. [재현 단계 2]  
+                   3. [예상과 다른 결과를 설명하세요.]
+      value: ""
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 🤔 Expected Behavior
+        버그가 수정되었을 때의 올바른 동작을 설명하세요.
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대 동작
+      description: 버그가 없을 경우 예상되는 동작을 작성하세요.
+      placeholder: 수정된 후 시스템이 어떻게 동작해야 하는지 설명하세요.
+      value: ""
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 🖼 Screenshots or Logs
+        버그와 관련된 스크린샷, 오류 로그 또는 추가 정보를 첨부하세요.
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 스크린샷 또는 로그
+      description: 스크린샷이나 로그를 첨부하여 문제를 더 잘 설명하세요.
+      placeholder: 여기에서 추가 정보를 공유하세요.
+      value: ""
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 🔗 Additional Information
+        참고할 추가 내용이나 관련 링크(예: 핀토스 메뉴얼)가 있다면 작성하세요.
+
+  - type: input
+    id: additional-info
+    attributes:
+      label: 추가 정보
+      description: 참고할 자료나 링크를 입력하세요.
+      placeholder: 추가 정보를 입력하세요.
+      value: ""
