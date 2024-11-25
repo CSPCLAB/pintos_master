@@ -67,7 +67,7 @@ cd pintos-master
 ## 📖 문서
 - [코딩 컨벤션](study/coding_conventions.md)
 - [주간 보고서](study/weekly_reports/)
-
+- [문서](study/)
 ---
 
 ## 🧪 테스트
