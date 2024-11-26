@@ -83,7 +83,7 @@ cd pintos-master
 
 - [코딩 컨벤션](study/coding_conventions.md)
 - [주간 보고서](study/weekly_reports/)
-- [문서](study/)
+- [OS 개념](study/os_concepts)
 
 ---
 
