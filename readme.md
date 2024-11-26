@@ -74,6 +74,8 @@ cd pintos-master
   - 예: `feat: Implement thread initialization`
 - **코딩 스타일**:
   - 세부 규칙은 [컨벤션 규칙](study/coding_conventions.md) 참고
+- **에디터 확장**:
+  - vscode extension: `markdownlint`, `C/C++`
 
 ---
 
