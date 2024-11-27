@@ -1,0 +1,47 @@
+# 베이스 이미지로 Ubuntu 18.04 사용
+FROM ubuntu:18.04
+
+# 빌드 인자: UID와 GID를 스크립트에서 전달받음
+ARG UID
+ARG GID
+
+# 필요한 패키지 설치
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    bash \
+    build-essential \
+    gdb \
+    gcc \
+    emacs \
+    vim \
+    nano \
+    qemu \
+    wget \
+    xorg-dev \
+    libncursesw5 \
+    libncurses5-dev \
+    dos2unix \
+    expect \
+    rsync \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# 호스트 사용자와 동일한 UID/GID로 사용자 생성
+RUN groupadd -g ${GID} pintosgroup && \
+    useradd -m -u ${UID} -g pintosgroup pintosuser
+
+# Pintos 소스 디렉터리 생성
+RUN mkdir -p /pintos/src
+
+# 작업 디렉터리 설정
+WORKDIR /pintos
+
+# 환경 변수 설정
+ENV PINTOS_HOME=/pintos
+ENV PATH=/pintos/src/utils:$PATH
+
+# 사용자 권한 설정
+USER pintosuser
+
+# 기본 명령
+CMD ["bash"]
