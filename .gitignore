@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=c
 
 ### Pintos ###
-src/utils/pintos
 build/
 *.output
 *.o
