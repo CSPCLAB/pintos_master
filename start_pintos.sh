@@ -27,6 +27,7 @@ echo "컨테이너(${CONTAINER_NAME})를 실행합니다..."
 docker run -itd \
     --name ${CONTAINER_NAME} \
     --hostname ${CONTAINER_NAME} \
+    --user $(id -u):$(id -g) \
     -v $(pwd):/pintos \
     -w /pintos \
     ${IMAGE_NAME} bash -c "TMOUT=0; exec bash"
