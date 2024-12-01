@@ -5,6 +5,10 @@ USER_NAME=$(whoami)
 CONTAINER_NAME="pintos_${USER_NAME}"
 IMAGE_NAME="cocopam/pintos-runner:latest"  # Docker Hub에서 가져올 이미지 이름
 
+# 실행할 사용자 및 그룹 ID 가져오기
+HOST_UID=$(id -u)
+HOST_GID=$(id -g)
+
 # Docker Hub에서 이미지 가져오기
 echo "Docker Hub에서 이미지를 가져옵니다: ${IMAGE_NAME}"
 docker pull ${IMAGE_NAME}
@@ -24,20 +28,13 @@ fi
 
 # 컨테이너 실행
 echo "컨테이너(${CONTAINER_NAME})를 실행합니다..."
-docker run -itd \
+docker run -it \
     --name ${CONTAINER_NAME} \
     --hostname ${CONTAINER_NAME} \
-    --user $(id -u):$(id -g) \
+    -e HOST_UID=$(id -u) \
+    -e HOST_GID=$(id -g) \
     -v $(pwd):/pintos \
     -w /pintos \
-    ${IMAGE_NAME} bash -c "TMOUT=0; exec bash"
+    ${IMAGE_NAME}
 
-if [ $? -ne 0 ]; then
-    echo "컨테이너 실행에 실패했습니다."
-    exit 1
-fi
 
-echo "컨테이너(${CONTAINER_NAME})가 성공적으로 실행되었습니다."
-
-# 실행된 컨테이너로 bash 접속
-docker exec -it ${CONTAINER_NAME} bash
